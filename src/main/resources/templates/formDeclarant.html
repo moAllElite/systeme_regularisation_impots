@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="home"
+>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/webjars/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="webjars/font-awesome/6.4.2/css/all.min.css ">
+    <title>New declarant</title>
+    <script src="/js/form_declarant.js"></script>
+</head>
+<body style="overflow: hidden; width: 100%;">
+
+<div class="hero-body   columns is-centered" layout:fragment="content1">
+            <div class="box is-white column is-half" style="max-width: 500px;">
+                <h2 class="title is-centered has-text-grey-darker " style="margin-left: 3.3em">Nouveau déclarant </h2>
+                <form th:method="post" th:action="@{save}"  >
+                    <div class="field m-5">
+                        <label class="label ">Raison social</label>
+                        <div class="control mb-3">
+                            <label for="social"></label>
+                            <input id="social" class="input"  type="text" name="raisonSociale" placeholder="Raison sociale">
+
+                            <span class="help is-danger" th:errors="${dec.raisonSociale}"></span>
+                        </div>
+                    </div>
+                    <div class="field m-5">
+                        <label class="label " for="tel">Téléphone</label>
+                        <div class="control  has-icons-left">
+                            <input id="tel" class="input" type="tel" name="telephone" th:value="${dec.telephone}"   placeholder="77XXXXXX">
+                            <span class="icon is-left">
+                                <i class="fas fa-phone"></i>
+                            </span>
+                            <span class="help is-danger" th:errors="${dec.telephone}"></span>
+                        </div>
+                    </div>
+                    <div class="field m-5">
+                        <label class="label has-text-black-bis" for="email">Email</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input id="email" name="email"  class="input is-selected" type="text" placeholder="Email input" th:value="${dec.email}">
+                            <span class="icon is-small is-left">
+                              <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                        <span th:errors="${dec.email}" class="help  is-danger"></span>
+                    </div>
+                    <div class="field m-5">
+                        <label class="label" for="add">Adresse</label>
+                        <div class="control  has-icons-left has-icons-right">
+                            <input id="add" class="input is-selected" type="text" name="adresse" th:value="${dec.adresse}"  placeholder="Entrez votre adresse"  >
+                            <span class="icon is-small is-left">
+                                 <i class="fas fa-location"></i>
+                            </span>
+                            <span class="icon is-small is-right">
+                                <i class="fas fa-location-pin"></i>
+                            </span>
+                        </div>
+                        <span th:errors="${dec.adresse}" class="help is-danger"></span>
+                    </div>
+
+                    <div class="columns is-centered ">
+                        <div class="column is-half    field is-grouped ">
+                            <div class="control">
+                                <button type="submit"  class="button is-link">Enregister</button>
+                            </div>
+                            <div class="control ">
+                                <button  id="cancel" onclick="clearField()" class="button is-link is-light">Annuler</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+</body>
+</html>

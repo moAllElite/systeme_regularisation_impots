@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+       <link rel="stylesheet" href="/webjars/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="webjars/font-awesome/6.4.2/css/all.min.css ">
+    <title>Title</title>
+</head>
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+            <a class="navbar-item" th:href="@{home}">
+
+                Accueil
+            </a>
+
+            <a class="navbar-item" th:href="@{declarants}">
+              Liste des  Déclarants
+            </a>
+            <a class="navbar-item " th:href="@{formDeclarant}">
+                Nouveau Declarant
+            </a>
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link ">
+                    Déclaration
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" th:href="@{formDeclaration}">
+                        Nouvelle déclaration
+                    </a>
+                    <a class="navbar-item" th:href="@{declarations}">
+                       Liste des déclarations
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+    <section class="hero is-fullheight-with-navbar is-link ">
+            <section layout:fragment="content1">
+
+
+            </section>
+    </section>
+
+
+</body>
+</html>

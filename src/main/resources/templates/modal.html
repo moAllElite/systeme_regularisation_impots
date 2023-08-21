@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="modal" id="myModal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Modal Title</p>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+            <!-- Modal content goes here -->
+            <p>This is the content of the modal.</p>
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button is-primary">Save changes</button>
+            <button class="button" id="closeModalButton">Cancel</button>
+        </footer>
+    </div>
+</div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const openModalButton = document.getElementById('openModalButton');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const myModal = document.getElementById('myModal');
+
+        openModalButton.addEventListener('click', function() {
+            myModal.classList.add('is-active');
+        });
+
+        closeModalButton.addEventListener('click', function() {
+            myModal.classList.remove('is-active');
+        });
+    });
+</script>
+
+</html>

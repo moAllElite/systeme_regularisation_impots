@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+
+  >
+<head>
+    <link rel="stylesheet" href="/webjars/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="webjars/font-awesome/6.4.2/css/all.min.css ">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<section class="hero is-dark   is-fullheight">
+    <nav class="breadcrumb is-centered mt-3  mb-0" aria-label="breadcrumbs">
+        <ul>
+            <li ><a th:href="@{/}">Accueil</a></li>
+            <li><a th:href="@{declarants}">Déclarant</a></li>
+            <li><a th:href="@{formDeclarant}">Nouveau déclarant</a></li>
+            <li><a th:href="@{formDeclaration}">Nouvelle déclaration</a></li>
+        </ul>
+    </nav>
+    <div class="container mb-5">
+        <div class="hero-body ">
+            <p layout:fragment="content1"></p>
+        </div>
+        <div class="card ">
+            <header class="card-header">
+                <p layout:fragment="card-title" class="card-header-title"></p>
+                <button class="card-header-icon" aria-label="more options">
+                <span class="icon">
+                    <i class="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+                </button>
+            </header>
+
+            <div class="card-content">
+                <div class="content">
+                    <table class="table" layout:fragment="content2"></table>
+                </div>
+            </div>
+        </div>
+        <nav class="pagination is-centered m-5" role="navigation" aria-label="pagination">
+            <section layout:fragment="content3">
+
+            </section>
+            <section layout:fragment="content4">
+
+            </section>
+            <ul  layout:fragment="content5">
+
+            </ul>
+        </nav>
+    </div>
+</section>
+
+</body>
+</html>

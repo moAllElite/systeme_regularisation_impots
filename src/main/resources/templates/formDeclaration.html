@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="home"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="overflow: hidden;width: 100%; margin: 0;">
+<div class="hero-body columns is-centered" layout:fragment="content1">
+    <div class="box column  is-one-quarter">
+        <h3 class="title is-4 has-text-centered has-text-grey-darker">Nouvelle déclaration</h3>
+        <form th:method="post" th:action="@{declarer}" >
+            <div class="field m-5">
+                <label class="label ">Date de la déclaration </label>
+                <div class="control mb-3">
+                    <label for="dateDeclaration"></label>
+                    <input id="dateDeclaration" class="input" type="date" th:value="${declaration.dateDeclarartion}" name="dateDeclarartion" >
+                    <span class="help is-danger" th:errors="${declaration.dateDeclarartion}"></span>
+                </div>
+            </div>
+            <div class="field m-5">
+                <label class="label " for="montant">Montant déclaration</label>
+                <div class="control  has-icons-left">
+                    <input id="montant" class="input" type="number" step="1" name="montantDeclaration" th:value="${declaration.montantDeclaration}"
+                           placeholder="Entrer le montant">
+                    <span class="icon is-left">
+                        <i class="fas fa-money-bills"></i>
+                     </span>
+                    <span class="help is-danger " th:errors="${declaration.montantDeclaration}"></span>
+                </div>
+            </div>
+            <div  class="field m-5">
+                <label for="tel" class="label">Choisir le numéro du déclarant:</label>
+                <input list="telephone" id="tel" name="telephone"  class="input is-selected"/>
+                <datalist id="telephone" >
+                    <option  th:each="d:${obtainedDeclarant}"  th:value="${d.telephone}"></option>
+                </datalist>
+                      </div>
+            <!--div class="has-text-centered   select">
+                <label>
+                    <select >
+                        <option th:each="d:${obtainedDeclarant}" th:text="${d.telephone}"></option>
+                    </select>
+                </label>
+
+            </div-->
+            <div class="columns is-centered ">
+                    <div class="column is-half " style="text-align: center;">
+                        <button type="submit"  class="button is-link">Enregister</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

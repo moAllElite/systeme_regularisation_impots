@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr" layout:decorate="list_layout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+    >
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/list_declarant.css}" rel="stylesheet">
+    <link rel="stylesheet" href="/webjars/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="webjars/font-awesome/6.4.2/css/all.min.css">
+    <title>Liste déclarants</title>
+</head>
+<body>
+<div layout:fragment="content1">
+    <h3 class="title mt-2 ">Liste des déclarants</h3>
+    <form  method="get" th:action="@{declarants}">
+        <div class="field has-addons ">
+            <p class="control mt-2 mr-3">
+                Téléphone
+            </p>
+            <div class="field ">
+                <div class="control has-icons-left has-icons-right">
+                    <input class="input" type="tel" name="keyword" th:value="${keyword}"
+                           placeholder="Chercher téléphone">
+                    <span class="icon is-medium is-left">
+                                    <i class="fas fa-phone fa-xs"></i>
+                                </span>
+                    <span class="icon is-medium is-right">
+                                    <i class="fas fa-search fa-xs"></i>
+                                </span>
+                </div>
+            </div>
+            <div class="control">
+                <button type="submit" class="button is-info ">
+                    Chercher
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+    <p layout:fragment="card-title">
+        Déclarants
+    </p>
+    <table layout:fragment="content2" class="table mr-3 ma-table">
+        <thead>
+        <tr>
+            <th><abbr title="ID">#</abbr></th>
+            <th>email</th>
+            <th>telephone</th>
+            <th><abbr title="raison social">social</abbr></th>
+            <th>adresse</th>
+            <th >
+                <i class="   fas fa-tools" style="margin-left: 45%"></i>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="d:${listDeclarants}">
+
+            <td th:text="${d.id}"></td>
+            <td th:text="${d.email}"></td>
+            <td th:text="${d.telephone}"></td>
+            <td th:text="${d.raisonSociale}"></td>
+            <td th:text="${d.adresse}"></td>
+            <td>
+                <a class="button is-primary mr-3" th:href="Paiements" >
+                    <i class="fas fa-credit-card-alt mr-2"></i>
+                        Paiements
+                </a>
+
+                <a th:href="@{declarations}" class="button ml-3  is-shadowless is-info">
+                    <i class="fas fa-archive mr-2"></i>
+                    Déclarations
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+        <a layout:fragment="content3"
+                th:class="${currentPage ==  0 ?' is-hidden':'pagination-previous'}"
+                th:href="@{declarants(page=${previousPage})}"
+        >Previous</a>
+        <a layout:fragment="content4"  th:href="@{declarants(page=${nextPage})}"
+           th:class="${currentPage == lenghtPage ? 'is-hidden' : 'pagination-next '}"
+        >Next page</a>
+    <ul layout:fragment="content5" class="pagination-list">
+        <li th:each="page,status:${pages}">
+            <a th:class="${status.index   ==  currentPage ? 'pagination-link is-current':'pagination-link' }"
+               th:text="${status.index}"
+               th:href="@{declarants(page=${status.index})}"
+            >
+            </a>
+        </li>
+    </ul>
+</body>
+</html>

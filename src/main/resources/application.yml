@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    name: impots
+    username: postgres
+    password: secret
+    url: jdbc:postgresql://localhost:5432/impots
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  thymeleaf:
+    cache: false
