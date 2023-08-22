@@ -102,7 +102,7 @@ public class DeclarationController {
                     "error",
                     "echec transaction montant renseigné supérieur à la redevance "
             );
-            return "redirect:/transaction";
+
         }else {
             double      reste=  paiementDto.getDeclaration().getMontantDeclaration() - paiementDto.getMontantPaiement();
             System.out.println("le reste"+reste);

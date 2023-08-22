@@ -1,4 +1,5 @@
 #   systeme de régularisation des impôts
+## ajout et liste  des déclarant
 ![img.png](img.png)
 ![img_1.png](img_1.png)
 ![img_2.png](img_2.png)
