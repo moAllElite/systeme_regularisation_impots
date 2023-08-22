@@ -1,13 +1,10 @@
 package com.groupeisi.secu_impots.service;
 
 import com.groupeisi.secu_impots.dto.DeclarationDto;
-import com.groupeisi.secu_impots.entities.Declarant;
 import com.groupeisi.secu_impots.entities.Declaration;
 import com.groupeisi.secu_impots.mapper.DeclarationMapper;
 import com.groupeisi.secu_impots.repositories.DeclarationRepository;
 import jakarta.transaction.Transactional;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -41,5 +38,12 @@ public class DeclarationService {
         return declarationRepository
                 .findAllByDeclarant_Telephone(tel,PageRequest.of(page, size))
                 .map(declarationMapper::toEntity);
+    }
+
+    public  DeclarationDto findDeclarationByTelephoneDeclarant(String   tel){
+        return  declarationMapper.toEntity(
+                declarationRepository
+                        .findAllByDeclarant_Telephone(tel)
+        );
     }
 }

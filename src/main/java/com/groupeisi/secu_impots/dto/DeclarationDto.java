@@ -10,15 +10,11 @@ import java.util.Date;
 @NoArgsConstructor@AllArgsConstructor
 public class DeclarationDto {
     private  long id;
-    @NotEmpty(message = "Le champs est date est obligatoire")
-    @Past(message = "la date saisie est incorrect")
-    @Future(message = "la date saisie esst incorrect")
+    @NotNull(message = "champs obligatoire")
     private Date dateDeclarartion;
-
      private Declarant declarant;
-
      private  String etat;
-    @Positive(message = "Le champs montant est obligatoire")
-    private  double montantDeclaration;
+    @NotNull(message = "champs obligatoire")
+     private  double montantDeclaration;
 
 }

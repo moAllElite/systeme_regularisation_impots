@@ -12,10 +12,11 @@
 
     <title>Liste déclarations</title>
 </head>
+
     <body>
      <div layout:fragment="content1">
          <h3 class="title mt-2 ">Liste des déclarations</h3>
-        <form  method="get" th:action="@{transaction}">
+        <form  method="get" th:action="@{declarations}">
             <div class="field has-addons ">
                 <p class="control mt-2 mr-3">
                     Téléphone
@@ -41,19 +42,13 @@
                 </div>
             </div>
         </form>
-        <div th:class="${declaration.isEmpty() ?
-        'notification is-info':'is-hidden'}" style="margin-left:5%; ">
-            <button class="delete"></button>
-            Veuillez saisir le <strong>numéro complet</strong> du déclarant
-
-        </div>
     </div>
 
     <div layout:fragment="card-title">
         Déclaration
         <!--modal-->
-        <!--div class="modal" id="myModal">
-            <form method="post" action="/versement" >
+        <div class="modal" id="myModal">
+            <form method="post" th:action="@{versement}" >
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
@@ -63,12 +58,12 @@
                 <section class="modal-card-body">
 
                         <div class="field m-5">
-                            <label class="label ">Date de la déclaration </label>
+                            <label class="label " for="datePaiement">Date de paiement </label>
                             <div class="control mb-3">
-                                <label for="dateDeclaration"></label>
-                                <input id="dateDeclaration" class="input" type="date" th:value="${paye.datepaiement}"
+                                <input id="datePaiement"
+                                       class="input" type="date" th:value="${paye.datePaiement}"
                                        name="datePaiement" >
-                                <span class="help is-danger" th:errors="${paye.datepaiement}"></span>
+
                             </div>
                         </div>
                         <div class="field m-5">
@@ -87,7 +82,7 @@
                         <div class="control has-icons-right">
                             <div class="select is-rounded ">
                                     <select  id="tels" class="is-focused" name="telephone">
-                                        <option th:text="${paye.declaration.declarant != null ? 'paye.declaration.declarant.telephone':''}"></option>
+                                        <option th:text="${paye.declaration.declarant.telephone}"></option>
                                     </select>
                             </div>
                         </div>
@@ -100,7 +95,7 @@
                 </footer>
             </div>
             </form>
-        </div-->
+        </div>
 
         <!---modal--->
     </div>

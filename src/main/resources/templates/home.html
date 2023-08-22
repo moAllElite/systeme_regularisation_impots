@@ -6,9 +6,11 @@
     <meta charset="UTF-8">
        <link rel="stylesheet" href="/webjars/bulma/0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="webjars/font-awesome/6.4.2/css/all.min.css ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+
     <title>Title</title>
 </head>
-<body>
+<body >
 
     <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -56,11 +58,51 @@
 </nav>
     <section class="hero is-fullheight-with-navbar is-link ">
             <section layout:fragment="content1">
-
+                <img src="/images/sunset.jpg" style="background-size: contain;" height="20%;" >
 
             </section>
+        <!--Modal-->
+        <div class="modal" id="myModal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Modal Title</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    <!-- Modal content goes here -->
+                    <p>This is the content of the modal.</p>
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-primary">Save changes</button>
+                    <button class="button" id="closeModalButton">Cancel</button>
+                </footer>
+            </div>
+        </div>
     </section>
 
-
 </body>
+<style>
+    html,body,section{
+        overflow: hidden; margin: 0; height: 100%;
+    }
+
+</style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const openModalButton = document.getElementById('openModalButton');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const myModal = document.getElementById('myModal');
+
+        openModalButton.addEventListener('click', function() {
+        myModal.classList.add('is-active');
+    });
+
+        closeModalButton.addEventListener('click', function() {
+        myModal.classList.remove('is-active');
+    });
+    });
+
+</script>
 </html>

@@ -9,6 +9,7 @@
 </head>
 <body style="overflow: hidden;width: 100%; margin: 0;">
 <div class="hero-body columns is-centered" layout:fragment="content1">
+
     <div class="box column  is-one-quarter">
         <h3 class="title is-4 has-text-centered has-text-grey-darker">Nouvelle déclaration</h3>
         <form th:method="post" th:action="@{declarer}" >
@@ -37,15 +38,8 @@
                 <datalist id="telephone" >
                     <option  th:each="d:${obtainedDeclarant}"  th:value="${d.telephone}"></option>
                 </datalist>
-                      </div>
-            <!--div class="has-text-centered   select">
-                <label>
-                    <select >
-                        <option th:each="d:${obtainedDeclarant}" th:text="${d.telephone}"></option>
-                    </select>
-                </label>
+            </div>
 
-            </div-->
             <div class="columns is-centered ">
                     <div class="column is-half " style="text-align: center;">
                         <button type="submit"  class="button is-link">Enregister</button>

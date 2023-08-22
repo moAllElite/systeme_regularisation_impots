@@ -50,8 +50,26 @@
 
             </ul>
         </nav>
+        <section layout:fragment="content6"></section>
     </div>
 </section>
+<!--script-->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const openModalButton = document.getElementById('openModalButton');
+        const closeModalButton = document.getElementById('closeModalButton');
+        const myModal = document.getElementById('myModal');
 
+        openModalButton.addEventListener('click', function() {
+            myModal.classList.add('is-active');
+        });
+
+        closeModalButton.addEventListener('click', function() {
+            myModal.classList.remove('is-active');
+        });
+    });
+</script>
+
+<!--script-->
 </body>
 </html>

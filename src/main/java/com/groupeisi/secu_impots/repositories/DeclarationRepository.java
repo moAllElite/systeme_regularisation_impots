@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface DeclarationRepository extends JpaRepository<Declaration,Long> {
     Page<Declaration> findAllByDeclarant_Telephone(String tel, Pageable pageable);
-
+    Declaration findAllByDeclarant_Telephone(String tel);
 }
