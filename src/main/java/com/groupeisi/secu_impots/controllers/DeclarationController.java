@@ -80,7 +80,7 @@ public class DeclarationController {
 
         if(
                 paiementDto.getMontantPaiement() == paiementDto.getDeclaration().getMontantDeclaration()
-                || paiementDto.getRedevanceRestant() == paiementDto.getMontantPaiement()
+                || paiementDto.getRedevanceRestant() == 0
         ){
             declarationDto.setEtat(
                     Etat.PAYER.name()
