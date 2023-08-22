@@ -8,3 +8,4 @@ Declaration(id long, dateDeclaration date, montantDeclaration  double, idDeclara
 Paiement(id long, datePaiement Date, montantPaiement double, idDeclaration long)
 
 Il est possible pour un déclarant d'effectuer plusieurs paiements d'une même déclaration.
+![img.png](img.png)

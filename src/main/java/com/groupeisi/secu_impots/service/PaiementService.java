@@ -41,9 +41,11 @@ public class PaiementService {
 
     }
 
-    public Page<PaiementDto> findAllPaginated(int page,int size){
+    public Page<PaiementDto> findAllPaiementByTelephone(String tel,int page,int size){
         return  repository
-                .findAll(PageRequest.of(page, size))
+                .findAllByDeclaration_DeclarantTelephone(
+                        tel,PageRequest.of(page, size)
+                )
                 .map(paiementMapper::toEntity);
 
     }

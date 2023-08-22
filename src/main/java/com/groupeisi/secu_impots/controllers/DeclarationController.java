@@ -171,6 +171,7 @@ public class DeclarationController {
     /**
      * paiement
      */
+
     @GetMapping("/transaction")
     public String showAll(
             Model model,
@@ -208,17 +209,5 @@ public class DeclarationController {
     }
 
 
-    @GetMapping(path = "/paiements")
-    public String paiements(
-            Model model,
-            @RequestParam(name = "page",defaultValue = "0") int page,
-            @RequestParam(name = "size",defaultValue = "5") int size
-    ) {
-        Page<PaiementDto> paiementsPaginated = paiementService.findAllPaginated(page,size);
-        model.addAttribute("currentPage", page);
-        model.addAttribute("pages",new int [paiementsPaginated.getTotalPages()]);
-        model.addAttribute("previousPage", page - 1);
-        model.addAttribute("nextPage", page + 1);
-        return "list_paiement";
-    }
+
 }
