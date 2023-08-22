@@ -22,4 +22,5 @@ montant de déclaration et le montant payé.
 Une fois une déclaration completement réglée
 la redevance est égale à 0 dans ce cas on désactive le bouton paiement de l'utilisateur 
 ![img_9.png](img_9.png)
+#### Désactivation du bouton paiement 
 ![img_10.png](img_10.png)
