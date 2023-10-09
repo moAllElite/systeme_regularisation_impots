@@ -1,4 +1,5 @@
 #   systeme de régularisation des impôts
+lancez les containeur  docker de postgresql  avec terminal avec la commande `docker-compose up `
 
 ![img.png](img.png)
 ## Ajout déclarant
