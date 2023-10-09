@@ -1,8 +1,8 @@
 #   systeme de régularisation des impôts
-lancez les containeur  docker de postgresql et pgadmin avec terminal avec la commande `docker-compose up `
-Le pgadmin se lance au port `localhost:5050`
-les identifiants sont email : `admin@email.com` et mot de passe `admin`
-Plus de détails consultés le fichier compose.yml
+### lancez les containeur  docker de postgresql et pgadmin avec terminal avec la commande `docker-compose up `
+### Le pgadmin se lance au port `localhost:5050`
+### les identifiants sont email : `admin@email.com` et mot de passe `admin`
+### Plus de détails consultés le fichier compose.yml
 
 
 ![img.png](img.png)
